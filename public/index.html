@@ -9,12 +9,17 @@
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://mvllet.dev/">
 
-    <link rel="icon" type="image/svg+xml" href="/assets/images/meta/icon.svg">
-    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/meta/favicon-32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/meta/favicon-16.png">
-    <link rel="shortcut icon" href="/assets/images/meta/favicon.ico">
+    <link rel="icon" type="image/svg+xml" href="/assets/images/meta/dark/icon.svg" media="(prefers-color-scheme: light)">
+    <link rel="icon" type="image/svg+xml" href="/assets/images/meta/icon.svg" media="(prefers-color-scheme: dark)">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/meta/dark/favicon-32.png" media="(prefers-color-scheme: light)">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/meta/favicon-32.png" media="(prefers-color-scheme: dark)">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/meta/dark/favicon-16.png" media="(prefers-color-scheme: light)">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/meta/favicon-16.png" media="(prefers-color-scheme: dark)">
+    <link rel="shortcut icon" href="/assets/images/meta/dark/favicon.ico" media="(prefers-color-scheme: light)">
+    <link rel="shortcut icon" href="/assets/images/meta/favicon.ico" media="(prefers-color-scheme: dark)">
 
-    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/meta/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/meta/dark/apple-touch-icon.png" media="(prefers-color-scheme: light)">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/meta/apple-touch-icon.png" media="(prefers-color-scheme: dark)">
 
     <meta property="og:type" content="website">
     <meta property="og:title" content="Mullet's website">
@@ -146,11 +151,31 @@
                 <a href="https://github.com/mvllet" target="_blank">GitHub (mvllet)</a>
             </div>
 
-            <span>Last updated: October 11, 2026</span>
+            <span>Last updated: October 12, 2026</span>
         </div>
     </footer>
 
     <script defer>
+        const schemeQuery = matchMedia("(prefers-color-scheme: light)");
+
+        function syncFavicons() {
+            const light = schemeQuery.matches;
+
+            document.querySelectorAll('link[rel="icon"], link[rel="shortcut icon"]').forEach(link => {
+                const href = link.getAttribute("href");
+                if (!href) return;
+
+                if (light && href.includes("/assets/images/meta/") && !href.includes("/assets/images/meta/dark/")) {
+                    link.href = href.replace("/assets/images/meta/", "/assets/images/meta/dark/");
+                } else if (!light && href.includes("/assets/images/meta/dark/")) {
+                    link.href = href.replace("/assets/images/meta/dark/", "/assets/images/meta/");
+                }
+            });
+        }
+
+        schemeQuery.addEventListener("change", syncFavicons);
+        syncFavicons();
+
         document.querySelectorAll(".copy-url").forEach(button => {
             button.addEventListener("click", async () => {
                 const url = button.dataset.copy;
