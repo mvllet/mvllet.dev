@@ -1,10 +1,10 @@
 {
   "name": "mvllet.dev",
-  "version": "1.4.0",
+  "version": "1.4.2",
   "description": "Personal website that showcases my projects.",
   "private": true,
   "author": "Mullet",
-  "license": "SEE LICENSE IN LICENSE",
+  "license": "GPL-3.0-only",
   "type": "module",
   "main": "server.ts",
   "scripts": {
