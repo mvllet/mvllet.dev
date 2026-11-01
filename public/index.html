@@ -9,28 +9,12 @@
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://mvllet.dev/">
 
-    <link rel="icon" type="image/svg+xml" href="/assets/images/meta/dark/icon.svg" media="(prefers-color-scheme: light)">
-    <link rel="icon" type="image/svg+xml" href="/assets/images/meta/icon.svg" media="(prefers-color-scheme: dark)">
-    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/meta/dark/favicon-32.png" media="(prefers-color-scheme: light)">
-    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/meta/favicon-32.png" media="(prefers-color-scheme: dark)">
-    <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/meta/dark/favicon-16.png" media="(prefers-color-scheme: light)">
-    <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/meta/favicon-16.png" media="(prefers-color-scheme: dark)">
-    <link rel="shortcut icon" href="/assets/images/meta/dark/favicon.ico" media="(prefers-color-scheme: light)">
-    <link rel="shortcut icon" href="/assets/images/meta/favicon.ico" media="(prefers-color-scheme: dark)">
+    <link rel="icon" type="image/svg+xml" href="/assets/images/meta/icon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/meta/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/meta/favicon-16.png">
+    <link rel="shortcut icon" href="/assets/images/meta/favicon.ico">
 
-    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/meta/dark/apple-touch-icon.png" media="(prefers-color-scheme: light)">
-    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/meta/apple-touch-icon.png" media="(prefers-color-scheme: dark)">
-
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Mullet's website">
-    <meta property="og:description" content="Personal website that showcases my projects.">
-    <meta property="og:url" content="https://mvllet.dev/">
-    <meta property="og:image" content="https://mvllet.dev/assets/images/meta/og-image.webp">
-
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Mullet's website">
-    <meta name="twitter:description" content="Personal website that showcases my projects.">
-    <meta name="twitter:image" content="https://mvllet.dev/assets/images/meta/og-image.webp">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/meta/apple-touch-icon.png">
 
     <link rel="stylesheet" href="/assets/css/styles.css">
 </head>
@@ -132,8 +116,8 @@
         </ol>
 
         <div class="screenshots">
-            <img src="./assets/images/yql-server/iPhone3,1_Settings.webp" alt="iphone3,1-settings-view" />
-            <img src="./assets/images/yql-server/iPhone3,1_Weather.webp" alt="iphone3,1-weather-app" />
+            <img data-src="./assets/images/yql-server/iPhone3,1_Settings.webp" alt="iphone3,1-settings-view" width="320" height="480" decoding="async" />
+            <img data-src="./assets/images/yql-server/iPhone3,1_Weather.webp" alt="iphone3,1-weather-app" width="320" height="480" decoding="async" />
         </div>
     </section>
         
@@ -151,31 +135,11 @@
                 <a href="https://github.com/mvllet" target="_blank">GitHub (mvllet)</a>
             </div>
 
-            <span>Last updated: October 14, 2026</span>
+            <span>Last updated: November 1, 2026</span>
         </div>
     </footer>
 
     <script defer>
-        const schemeQuery = matchMedia("(prefers-color-scheme: light)");
-
-        function syncFavicons() {
-            const light = schemeQuery.matches;
-
-            document.querySelectorAll('link[rel="icon"], link[rel="shortcut icon"]').forEach(link => {
-                const href = link.getAttribute("href");
-                if (!href) return;
-
-                if (light && href.includes("/assets/images/meta/") && !href.includes("/assets/images/meta/dark/")) {
-                    link.href = href.replace("/assets/images/meta/", "/assets/images/meta/dark/");
-                } else if (!light && href.includes("/assets/images/meta/dark/")) {
-                    link.href = href.replace("/assets/images/meta/dark/", "/assets/images/meta/");
-                }
-            });
-        }
-
-        schemeQuery.addEventListener("change", syncFavicons);
-        syncFavicons();
-
         document.querySelectorAll(".copy-url").forEach(button => {
             button.addEventListener("click", async () => {
                 const url = button.dataset.copy;
@@ -191,6 +155,12 @@
                 } catch {
                     console.error("Failed to copy URL.");
                 }
+            });
+        });
+
+        window.addEventListener("load", () => {
+            document.querySelectorAll(".screenshots img[data-src]").forEach(img => {
+                img.src = img.dataset.src;
             });
         });
 
