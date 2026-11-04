@@ -6,7 +6,6 @@
 
     <title>Mullet's website</title>
     <meta name="description" content="Personal website that showcases my projects.">
-    <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://mvllet.dev/">
 
     <link rel="icon" type="image/svg+xml" href="/assets/images/meta/icon.svg">
@@ -15,6 +14,12 @@
     <link rel="shortcut icon" href="/assets/images/meta/favicon.ico">
 
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/meta/apple-touch-icon.png">
+
+    <meta property="og:title" content="Mullet's website">
+    <meta property="og:description" content="Personal website that showcases my projects.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://mvllet.dev/">
+    <meta name="twitter:card" content="summary">
 
     <link rel="stylesheet" href="/assets/css/styles.css">
 </head>
@@ -25,78 +30,86 @@
 
     <main>
 
-    <section class="desc">
-        <p class="info">
+    <section class="intro">
+        <p>
             I'm a 17-year-old student and developer from <span class="bold">Germany</span>. I've been building for the web since I was <span class="bold">10-years-old</span>. Over the past two years, I expanded into native iOS and macOS apps with <span class="bold">Swift</span> and backend systems with <span class="bold">Rust</span>.
         </p>
     </section>
 
-    <section class="work">
-        <div class="item">
-            <img src="./assets/images/work/hh-transit.webp" alt="hh-transit-icon" />
-
-            <div class="column">
-                <div class="head">
-                    <span class="title">HH Transit</span>
-                    
-                    <div class="libraries">
-                        <span>HTML</span>
-                        <span>TypeScript</span>
-                        <span>hafas-client</span>
-                    </div>
-                </div>
-
-                <p class="desc">
-                    A real-time, browser- or terminal-based departure monitor and route planner for Hamburg's public transport system.
-                </p>
-
-                <div class="project-sources">
-                    <a href="https://github.com/mvllet/hh-transit" target="_blank">WAP source</a>
-                    <a href="https://github.com/mvllet/hh-transit-cli" target="_blank">CLI source</a>
-                </div>
-            </div>
-        </div>
-        <div class="item">
-            <img src="./assets/images/work/hashmanager.webp" alt="hashmanager-icon" />
-
-            <div class="column">
-                <div class="head">
-                    <span class="title">Hash Manager</span>
-
-                    <div class="libraries">
-                        <span>Swift</span>
-                        <span>SwiftUI</span>
-                        <span>Rust</span>
-                        <span>Sparkle</span>
-                    </div>
-                </div>
-
-                <p class="desc">
-                    A native macOS app for verifying file integrity using the xxHash64, SHA-256, and BLAKE3 algorithms. Built with SwiftUI and Rust.
-                </p>
-            </div>
-        </div>
+    <section class="tabbar" role="tablist" aria-label="Sections" hidden>
+        <button id="work" type="button" role="tab" aria-controls="panel-work" data-label="Work">Work</button>
+        <button id="jailbreak" type="button" role="tab" aria-controls="panel-jailbreak" data-label="Jailbreaking">Jailbreaking</button>
+        <button id="server" type="button" role="tab" aria-controls="panel-server" data-label="YQL Server">YQL Server</button>
     </section>
-    
-    <div class="all-repos">
-        <a href="https://github.com/mvllet?tab=repositories" target="_blank">View all my repositories</a>
+
+    <div id="panel-work" role="tabpanel" aria-labelledby="work">
+        <section class="work">
+            <div class="item">
+                <img src="./assets/images/work/hh-transit.webp" alt="HH Transit app icon" width="96" height="96" />
+
+                <div class="column">
+                    <div class="head">
+                        <span class="title">HH Transit</span>
+
+                        <div class="libraries">
+                            <span>HTML</span>
+                            <span>TypeScript</span>
+                            <span>hafas-client</span>
+                        </div>
+                    </div>
+
+                    <p>
+                        A real-time, browser- or terminal-based departure monitor and route planner for Hamburg's public transport system.
+                    </p>
+
+                    <div class="project-sources">
+                        <a href="https://github.com/mvllet/hh-transit" target="_blank">WAP source</a>
+                        <a href="https://github.com/mvllet/hh-transit-cli" target="_blank">CLI source</a>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <img src="./assets/images/work/hashmanager.webp" alt="Hash Manager app icon" width="96" height="96" />
+
+                <div class="column">
+                    <div class="head">
+                        <span class="title">Hash Manager</span>
+
+                        <div class="libraries">
+                            <span>Swift</span>
+                            <span>SwiftUI</span>
+                            <span>Rust</span>
+                            <span>Sparkle</span>
+                        </div>
+                    </div>
+
+                    <p>
+                        A native macOS app for verifying file integrity using the xxHash64, SHA-256, and BLAKE3 algorithms. Built with SwiftUI and Rust.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <div class="all-repos">
+            <a href="https://github.com/mvllet?tab=repositories" target="_blank">View all my repositories</a>
+        </div>
     </div>
 
-    <section class="jailbreaking">
-        <p class="info">
+    <section id="panel-jailbreak" class="jailbreak" role="tabpanel" aria-labelledby="jailbreak">
+        <p>
             I also love <span class="bold">jailbreaking</span>. I downgraded my black <span class="bold">iPhone 4</span> to <span class="bold">iOS 6.1.3</span>, which sparked my interest in Cydia tweaks and reviving older iOS versions.
         </p>
 
-        <p class="info">
-            I’d like to give a few shoutouts. A huge thanks to <span class="bold">Preloading</span> for the MapsX and TubeReplacer tweaks, <span class="bold">Requis</span> and <span class="bold">Electimon</span> for the Weather & Stocks (WeatherX) tweak, and <span class="bold">Victor Lobe</span> for Veteris's revival as well as the only App Store fix that actually worked for me on iOS 6!
+        <p>
+            I’d like to give a few shoutouts. A huge thanks to <span class="bold">Preloading</span> for the MapsX and TubeReplacer tweaks, <span class="bold">Requis</span> and <span class="bold">Electimon</span> for the Weather &amp; Stocks (WeatherX) tweak, and <span class="bold">Victor Lobe</span> for Veteris's revival as well as the only App Store fix that actually worked for me on iOS 6!
         </p>
 
-        <p class="info">
-            Recently, I ran into issues with the Weather &amp; Stocks tweak caused by an overload on Requis' YQL server (<a href="https://github.com/TestOrig/YQL-X-Server-New" target="_blank">view source code</a>) after Electimons' server went down. To fix this, I recreated and simplified the server for myself using <a href="https://claude.ai/" target="_blank">Claude</a>, which worked surprisingly well. If you want to try it out, follow the tutorial below.
+        <p>
+            Recently, I ran into issues with the Weather &amp; Stocks tweak caused by an overload on Requis' YQL server (<a href="https://github.com/TestOrig/YQL-X-Server-New" target="_blank">view source code</a>) after Electimons' server went down. To fix this, I recreated and simplified the server for myself using <a href="https://claude.ai/" target="_blank">Claude</a>, which worked surprisingly well. If you want to try it out, follow the instructions on the next tab.
         </p>
     </section>
 
-    <section class="tutorial">
+    <section id="panel-server" class="server" role="tabpanel" aria-labelledby="server">
         <span>
             To try out my replacement YQL server, simply point Weather &amp; Stocks to it in your settings. Setup takes only a few seconds and is completely safe! <span class="bold">Please note:</span> because I replaced some underlying APIs, city IDs have changed. You will need to manually re-add your locations in the Weather app!
         </span>
@@ -116,11 +129,11 @@
         </ol>
 
         <div class="screenshots">
-            <img data-src="./assets/images/yql-server/iPhone3,1_Settings.webp" alt="iphone3,1-settings-view" width="320" height="480" decoding="async" />
-            <img data-src="./assets/images/yql-server/iPhone3,1_Weather.webp" alt="iphone3,1-weather-app" width="320" height="480" decoding="async" />
+            <img src="./assets/images/yql-server/iPhone3,1_Settings.webp" alt="Weather And Stocks settings on an iPhone 4" width="320" height="480" loading="lazy" decoding="async" />
+            <img src="./assets/images/yql-server/iPhone3,1_Weather.webp" alt="Weather app on an iPhone 4" width="320" height="480" loading="lazy" decoding="async" />
         </div>
     </section>
-        
+
     </main>
 
     <footer>
@@ -135,34 +148,105 @@
                 <a href="https://github.com/mvllet" target="_blank">GitHub (mvllet)</a>
             </div>
 
-            <span>Last updated: November 3, 2026</span>
+            <span>Last updated: <time id="updated">N/A</time></span>
         </div>
     </footer>
 
-    <script defer>
+    <div id="status" class="sr-only" role="status" aria-live="polite"></div>
+
+    <script>
+        document.documentElement.classList.add("js");
+
+        const tabs = [...document.querySelectorAll(".tabbar [role=tab]")];
+        const live = document.getElementById("status");
+        let currentTab = null;
+
+        function announce(message) {
+            live.textContent = message;
+            setTimeout(() => live.textContent = "", 2000);
+        }
+
+        function show(tab) {
+            if (!tabs.some(button => button.id === tab)) tab = "work";
+            currentTab = tab;
+
+            tabs.forEach(button => {
+                const active = button.id === tab;
+                button.classList.toggle("active", active);
+                button.setAttribute("aria-selected", active);
+                button.tabIndex = active ? 0 : -1;
+                document.getElementById(button.getAttribute("aria-controls")).hidden = !active;
+            });
+        }
+
+        function go(button, focus) {
+            if (button.id !== currentTab) {
+                const url = button.id === "work"
+                    ? location.pathname + location.search
+                    : "#" + button.id;
+
+                history.pushState(null, "", url);
+                show(button.id);
+            }
+
+            if (focus) button.focus();
+        }
+
+        tabs.forEach((button, i) => {
+            button.addEventListener("click", () => go(button));
+
+            button.addEventListener("keydown", event => {
+                const targets = {
+                    ArrowRight: i + 1,
+                    ArrowLeft: i - 1,
+                    Home: 0,
+                    End: tabs.length - 1
+                };
+
+                if (!(event.key in targets)) return;
+
+                event.preventDefault();
+                go(tabs[(targets[event.key] + tabs.length) % tabs.length], true);
+            });
+        });
+
+        window.addEventListener("popstate", () => show(location.hash.slice(1)));
+
         document.querySelectorAll(".copy-url").forEach(button => {
             button.addEventListener("click", async () => {
-                const url = button.dataset.copy;
-
                 try {
-                    await navigator.clipboard.writeText(url);
+                    await navigator.clipboard.writeText(button.dataset.copy);
 
                     button.classList.add("copied");
+                    announce("Copied to clipboard.");
 
-                    setTimeout(() => {
-                        button.classList.remove("copied");
-                    }, 1000);
+                    setTimeout(() => button.classList.remove("copied"), 1000);
                 } catch {
-                    console.error("Failed to copy URL.");
+                    const range = document.createRange();
+                    range.selectNodeContents(button.querySelector(".url"));
+
+                    const selection = getSelection();
+                    selection.removeAllRanges();
+                    selection.addRange(range);
+
+                    announce("Copy failed. Press Ctrl+C to copy the selected text.");
                 }
             });
         });
 
-        window.addEventListener("load", () => {
-            document.querySelectorAll(".screenshots img[data-src]").forEach(img => {
-                img.src = img.dataset.src;
-            });
+        const updated = document.getElementById("updated");
+        const modified = new Date(document.lastModified);
+
+        updated.textContent = modified.toLocaleDateString("en-US", {
+            year: "numeric",
+            month: "long",
+            day: "numeric"
         });
+        updated.dateTime = modified.toISOString().slice(0, 10);
+
+        document.querySelector(".tabbar").hidden = false;
+
+        show(location.hash.slice(1));
 
         console.log("Hey there! 👋\nLooking for bugs?");
     </script>
