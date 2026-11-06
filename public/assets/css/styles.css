@@ -281,7 +281,6 @@ header:hover h1 .wave {
     margin-bottom: 32px;
     display: flex;
     flex-direction: column;
-    gap: 16px;
 }
 
 .server .steps {
@@ -290,6 +289,7 @@ header:hover h1 .wave {
     gap: 8px;
     padding-left: 20px;
     line-height: 1.4;
+    margin-bottom: 20px;
 }
 
 .copy-url {
