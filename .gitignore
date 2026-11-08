@@ -2,6 +2,7 @@
 public/*
 !public/index.html
 !public/assets/
+server
 
 # macOS
 .DS_Store
@@ -14,13 +15,3 @@ public/*
 *.bak
 *.old
 *~
-
-# Bun
-node_modules/
-dist/
-.bun-cache/
-.cache/
-bun.lockb
-.env
-.env.local
-.env.*.local
