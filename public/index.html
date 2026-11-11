@@ -3,17 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f7f7f7">
 
     <title>Mullet's website</title>
     <meta name="description" content="Personal website that showcases my projects.">
     <link rel="canonical" href="https://mvllet.dev/">
 
-    <link rel="icon" type="image/svg+xml" href="/assets/images/meta/icon.svg">
-    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/meta/favicon-32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/meta/favicon-16.png">
-    <link rel="shortcut icon" href="/assets/images/meta/favicon.ico">
-
-    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/meta/apple-touch-icon.png">
+    <link rel="icon" href="/assets/images/meta/favicon.ico" sizes="32x32">
+    <link rel="icon" href="/assets/images/meta/icon.svg" type="image/svg+xml" sizes="any">
+    <link rel="apple-touch-icon" href="/assets/images/meta/apple-touch-icon.png">
 
     <meta property="og:title" content="Mullet's website">
     <meta property="og:description" content="Personal website that showcases my projects.">
@@ -148,7 +146,7 @@
                 <a href="https://github.com/mvllet" target="_blank">GitHub (mvllet)</a>
             </div>
 
-            <span>Last updated: <time id="updated">N/A</time></span>
+            <span>Last updated: <time datetime="2026-11-11">November 11, 2026</time></span>
         </div>
     </footer>
 
@@ -233,16 +231,6 @@
                 }
             });
         });
-
-        const updated = document.getElementById("updated");
-        const modified = new Date(document.lastModified);
-
-        updated.textContent = modified.toLocaleDateString("en-US", {
-            year: "numeric",
-            month: "long",
-            day: "numeric"
-        });
-        updated.dateTime = modified.toISOString().slice(0, 10);
 
         document.querySelector(".tabbar").hidden = false;
 
