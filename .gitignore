@@ -1,13 +1,10 @@
-# Project
-public/*
-!public/index.html
-!public/assets/
-server
-
 # macOS
 .DS_Store
 
-# Misc
+# Build output
+server
+
+# Editor and temporary files
 *.log
 *.tmp
 *.swp
@@ -15,3 +12,9 @@ server
 *.bak
 *.old
 *~
+
+# Private
+private/
+public/*
+!public/index.html
+!public/assets/
